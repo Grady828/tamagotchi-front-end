@@ -20,3 +20,12 @@ header ul {
   justify-content: space-evenly;
   padding: 0;
 }
+ul {
+  flex-direction: column;
+  align-items: center;
+  font-size: xx-large;
+}
+form {
+  display: flex;
+  justify-content: center;
+}
