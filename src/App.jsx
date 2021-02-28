@@ -1,25 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 
 export function App() {
+  useEffect(function () {
+    console.log('Run once at start')
+  }, [])
+
   return (
-    <>
+    <header>
       <header>
-        <h1>Welcome to my SPA</h1>
-        <nav>
+        <h1>Welcome to Your Tamagotchi Nest</h1>
+        {/* <nav>
           <ul>
             <li>
-              <Link to="/">Go Home</Link>
+              <button Link to="/">
+                Go Home
+              </button>
             </li>
             <li>
-              <Link to="/1">Page 1</Link>
+              <button Link to="/1">
+                Page 1
+              </button>
             </li>
             <li>
-              <Link to="/2">Page 2</Link>
+              <button Link to="/2">
+                Page 2
+              </button>
             </li>
           </ul>
-        </nav>
+        </nav> */}
       </header>
+      <main>
+        <nav></nav>
+      </main>
       <Switch>
         <Route exact path="/">
           Home
@@ -32,6 +45,6 @@ export function App() {
         </Route>
         <Route path="*">Not Found</Route>
       </Switch>
-    </>
+    </header>
   )
 }
