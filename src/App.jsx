@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import { Pets } from './pages/Pets'
+export function PetPage() {
+  return <p>This would be Pet 56</p>
+}
 export function App() {
   return (
     <header>
@@ -33,8 +36,8 @@ export function App() {
         <Route exact path="/">
           <Pets />
         </Route>
-        <Route exact path="/1">
-          Page 1
+        <Route exact path="/pets/:id">
+          <PetPage />
         </Route>
         <Route exact path="/2">
           Page 2
