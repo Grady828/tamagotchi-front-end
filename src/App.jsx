@@ -27,12 +27,11 @@ export function App() {
         </nav> */}
       </header>
       <main>
-        <Pets />
         <nav></nav>
       </main>
-      {/* <Switch>
+      <Switch>
         <Route exact path="/">
-          Home
+          <Pets />
         </Route>
         <Route exact path="/1">
           Page 1
@@ -40,8 +39,10 @@ export function App() {
         <Route exact path="/2">
           Page 2
         </Route>
-        <Route path="*">Not Found</Route>
-      </Switch> */}
+        <Route path="*">
+          <h2> There is nothing on this page!</h2>
+        </Route>
+      </Switch>
     </header>
   )
 }
