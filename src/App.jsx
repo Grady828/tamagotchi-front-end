@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
-
-export function App() {
+export function Pets() {
   const [pets, setPets] = useState({})
   const [newPet, setNewPet] = useState('')
 
@@ -29,7 +28,28 @@ export function App() {
 
     setNewPet('')
   }
+  return (
+    <>
+      <ul>
+        {Object.entries(pets).map(([petCode, petDetails]) => {
+          return <li key={petDetails.id}>{petDetails.name}</li>
+        })}
+      </ul>
+      <form onSubmit={handleNewPet}>
+        <input
+          type="text"
+          placeholder="New Pets Name"
+          value={newPet}
+          onChange={function (event) {
+            setNewPet(event.target.value)
+          }}
+        />
+      </form>
+    </>
+  )
+}
 
+export function App() {
   return (
     <header>
       <header>
@@ -55,23 +75,8 @@ export function App() {
         </nav> */}
       </header>
       <main>
-        <nav>
-          <ul>
-            {Object.entries(pets).map(([petCode, petDetails]) => {
-              return <li key={petDetails.id}>{petDetails.name}</li>
-            })}
-          </ul>
-          <form onSubmit={handleNewPet}>
-            <input
-              type="text"
-              placeholder="New Pets Name"
-              value={newPet}
-              onChange={function (event) {
-                setNewPet(event.target.value)
-              }}
-            />
-          </form>
-        </nav>
+        <Pets />
+        <nav></nav>
       </main>
       {/* <Switch>
         <Route exact path="/">
