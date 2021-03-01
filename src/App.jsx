@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link, Route, Switch } from 'react-router-dom'
+import { Link, Route, Switch, useParams } from 'react-router-dom'
 import { Pets } from './pages/Pets'
 export function PetPage() {
-  return <p>This would be Pet 56</p>
+  const params = useParams()
+  console.log(params)
+  return <p>This would be the details of Pet {params.id} </p>
 }
 export function App() {
   return (
