@@ -6,9 +6,9 @@ export function PetPage() {
   const [Pet, setPet] = useState({
     id: 0,
     name: 'string',
-    // birthday: '2021-03-01T01:58:27.945Z',
-    // happinessLevel: 0,
-    // hungerLevel: 0,
+    birthday: '2021-03-01T01:58:27.945Z',
+    happinessLevel: 0,
+    hungerLevel: 0,
   })
   const params = useParams()
   
@@ -18,8 +18,20 @@ export function PetPage() {
       `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
     )
     setPet(response.data)
-  }, [])
-  return <p>This would be the details of Pet {Pet.id}</p>
+  }, [params.id])
+
+
+
+  return <div>
+    <p> {Pet.name}</p>
+    <p> This Pets Birthday is {Pet.birthday}</p>
+    <p>Happiness Level: {Pet.happinessLevel} </p>
+    <p>Hunger Level: {Pet.hungerLevel}  </p>
+    <button>Play With Pet</button>
+    <button>Feed The Pet</button>
+    <button>Scold The Pet</button>
+    <button>Delete This Pet</button>
+    </div>
 }
 
 export function App() {
