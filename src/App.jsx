@@ -20,6 +20,13 @@ export function PetPage() {
     setPet(response.data)
   }, [params.id])
 
+  async function deletePet() {
+    const response = await axios.delete(
+      `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
+    )
+
+  }
+
 
 
   return <div>
@@ -30,7 +37,7 @@ export function PetPage() {
     <button>Play With Pet</button>
     <button>Feed The Pet</button>
     <button>Scold The Pet</button>
-    <button>Delete This Pet</button>
+    <button> onClick={deletePet}Delete This Pet</button>
     </div>
 }
 
