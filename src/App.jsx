@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, Route, Switch, useParams } from 'react-router-dom'
+import { Link, Route, Switch, useHistory, useParams } from 'react-router-dom'
 import { Pets } from './pages/Pets'
 export function PetPage() {
   const [Pet, setPet] = useState({
@@ -10,6 +10,7 @@ export function PetPage() {
     happinessLevel: 0,
     hungerLevel: 0,
   })
+  const history= useHistory()
   const params = useParams()
   
 
@@ -24,7 +25,7 @@ export function PetPage() {
     const response = await axios.delete(
       `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
     )
-
+    history.push('/')
   }
 
 
@@ -37,7 +38,7 @@ export function PetPage() {
     <button>Play With Pet</button>
     <button>Feed The Pet</button>
     <button>Scold The Pet</button>
-    <button> onClick={deletePet}Delete This Pet</button>
+    <button onClick={deletePet}>Delete This Pet</button>
     </div>
 }
 
