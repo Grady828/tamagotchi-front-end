@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
 
 export function Pets() {
   const [pets, setPets] = useState({})
@@ -33,7 +34,7 @@ export function Pets() {
     <>
       <ul>
         {Object.entries(pets).map(([petCode, petDetails]) => {
-          return <li key={petDetails.id}>{petDetails.name}</li>
+          return <Link to={`/pets/${petDetails.id}`}> <li key={petDetails.id}>{petDetails.name}</li></Link>
         })}
       </ul>
       <form onSubmit={handleNewPet}>

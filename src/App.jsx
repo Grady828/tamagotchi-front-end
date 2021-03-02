@@ -1,11 +1,27 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link, Route, Switch, useParams } from 'react-router-dom'
 import { Pets } from './pages/Pets'
 export function PetPage() {
+  const [Pet, setPet] = useState({
+    id: 0,
+    name: 'string',
+    // birthday: '2021-03-01T01:58:27.945Z',
+    // happinessLevel: 0,
+    // hungerLevel: 0,
+  })
   const params = useParams()
-  console.log(params)
-  return <p>This would be the details of Pet {params.id} </p>
+  
+
+  useEffect(async function () {
+    const response = await axios.get(
+      `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
+    )
+    setPet(response.data)
+  }, [])
+  return <p>This would be the details of Pet {Pet.id}</p>
 }
+
 export function App() {
   return (
     <header>
