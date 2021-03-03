@@ -34,21 +34,45 @@ export function PetPage() {
     const response = await axios.post(
       `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}/Playtimes`
     )
+    const updatePetPlay = await axios.get(
+      `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
+    )
+    setPet(updatePetPlay.data)
+  }
+
+  async function petFeed() {
+    const response = await axios.post(
+      `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}/Feedings`
+    )
+    const updatePetFeed = await axios.get(
+      `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
+    )
+    setPet(updatePetFeed.data)
+  }
+
+  async function petScold() {
+    const response = await axios.post(
+      `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}/Scoldings`
+    )
+    const updatePetScold = await axios.get(
+      `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
+    )
+    setPet(updatePetScold.data)
   }
 
   return (
     <div>
-      <p>
-        <Link to="/">Home</Link>
-      </p>
       <p> {Pet.name}</p>
       <p> This Pets Birthday is {Pet.birthday}</p>
       <p>Happiness Level: {Pet.happinessLevel} </p>
       <p>Hunger Level: {Pet.hungerLevel} </p>
       <button onClick={petPlay}>Play With Pet</button>
-      <button>Feed The Pet</button>
-      <button>Scold The Pet</button>
+      <button onClick={petFeed}>Feed The Pet</button>
+      <button onClick={petScold}>Scold The Pet</button>
       <button onClick={deletePet}>Delete This Pet</button>
+      <button>
+        <Link to="/">Home</Link>{' '}
+      </button>
     </div>
   )
 }
