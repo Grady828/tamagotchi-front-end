@@ -10,16 +10,18 @@ export function PetPage() {
     happinessLevel: 0,
     hungerLevel: 0,
   })
-  const history= useHistory()
+  const history = useHistory()
   const params = useParams()
-  
 
-  useEffect(async function () {
-    const response = await axios.get(
-      `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
-    )
-    setPet(response.data)
-  }, [params.id])
+  useEffect(
+    async function () {
+      const response = await axios.get(
+        `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
+      )
+      setPet(response.data)
+    },
+    [params.id]
+  )
 
   async function deletePet() {
     const response = await axios.delete(
@@ -28,18 +30,27 @@ export function PetPage() {
     history.push('/')
   }
 
+  async function petPlay() {
+    const response = await axios.post(
+      `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}/Playtimes`
+    )
+  }
 
-
-  return <div>
-    <p> {Pet.name}</p>
-    <p> This Pets Birthday is {Pet.birthday}</p>
-    <p>Happiness Level: {Pet.happinessLevel} </p>
-    <p>Hunger Level: {Pet.hungerLevel}  </p>
-    <button>Play With Pet</button>
-    <button>Feed The Pet</button>
-    <button>Scold The Pet</button>
-    <button onClick={deletePet}>Delete This Pet</button>
+  return (
+    <div>
+      <p>
+        <Link to="/">Home</Link>
+      </p>
+      <p> {Pet.name}</p>
+      <p> This Pets Birthday is {Pet.birthday}</p>
+      <p>Happiness Level: {Pet.happinessLevel} </p>
+      <p>Hunger Level: {Pet.hungerLevel} </p>
+      <button onClick={petPlay}>Play With Pet</button>
+      <button>Feed The Pet</button>
+      <button>Scold The Pet</button>
+      <button onClick={deletePet}>Delete This Pet</button>
     </div>
+  )
 }
 
 export function App() {
