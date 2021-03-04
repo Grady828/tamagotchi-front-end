@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, Route, Switch, useHistory, useParams } from 'react-router-dom'
 import { Pets } from './pages/Pets'
+import banner from './images/tam.png'
+
 export function PetPage() {
   const [Pet, setPet] = useState({
     id: 0,
@@ -14,6 +16,7 @@ export function PetPage() {
   const params = useParams()
 
   useEffect(
+    // @ts-ignore
     async function () {
       const response = await axios.get(
         `https://tamagotchimm.herokuapp.com/api/Pets/${params.id}`
@@ -62,49 +65,34 @@ export function PetPage() {
 
   return (
     <div>
-      <p> {Pet.name}</p>
-      <p> This Pets Birthday is {Pet.birthday}</p>
-      <p>Happiness Level: {Pet.happinessLevel} </p>
-      <p>Hunger Level: {Pet.hungerLevel} </p>
-      <button onClick={petPlay}>Play With Pet</button>
-      <button onClick={petFeed}>Feed The Pet</button>
-      <button onClick={petScold}>Scold The Pet</button>
-      <button onClick={deletePet}>Delete This Pet</button>
-      <button>
-        <Link to="/">Home</Link>{' '}
-      </button>
+      <article>
+        <p> {Pet.name}</p>
+        <p> This Pets Birthday is {Pet.birthday}</p>
+        <p>Happiness Level: {Pet.happinessLevel} </p>
+        <p>Hunger Level: {Pet.hungerLevel} </p>
+      </article>
+      <section>
+        <button onClick={petPlay}>Play With Pet</button>
+        <button onClick={petFeed}>Feed The Pet</button>
+        <button onClick={petScold}>Scold The Pet</button>
+        <button onClick={deletePet}>Delete This Pet</button>
+        <button>
+          <Link to="/">Home</Link>{' '}
+        </button>
+      </section>
     </div>
   )
 }
 
 export function App() {
   return (
-    <header>
+    <>
       <header>
-        <h1>Welcome to Your Tamagotchi Nest</h1>
-        {/* <nav>
-          <ul>
-            <li>
-              <button Link to="/">
-                Go Home
-              </button>
-            </li>
-            <li>
-              <button Link to="/1">
-                Page 1
-              </button>
-            </li>
-            <li>
-              <button Link to="/2">
-                Page 2
-              </button>
-            </li>
-          </ul>
-        </nav> */}
+        <p>
+          <img src={banner} alt="logo" />
+        </p>
       </header>
-      <main>
-        <nav></nav>
-      </main>
+
       <Switch>
         <Route exact path="/">
           <Pets />
@@ -119,6 +107,6 @@ export function App() {
           <h2> There is nothing on this page!</h2>
         </Route>
       </Switch>
-    </header>
+    </>
   )
 }

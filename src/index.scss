@@ -11,13 +11,11 @@ body {
   min-height: 100%;
   background-color: rgb(178, 125, 221);
 }
-h1 {
-  text-align: center;
-}
-header ul {
+
+header {
   display: flex;
   list-style: none;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 0;
 }
 ul {
@@ -25,12 +23,23 @@ ul {
   align-items: center;
   font-size: xx-large;
 }
-form {
-  display: flex;
-  justify-content: center;
-}
+
 h2 {
   display: flex;
   justify-content: center;
   background-color: lightseagreen;
+}
+div {
+  margin-top: 4rem;
+}
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: greenyellow;
+}
+section {
+  display: flex;
+  justify-content: center;
+  background-color: hotpink;
 }
