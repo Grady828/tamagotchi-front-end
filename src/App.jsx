@@ -64,22 +64,24 @@ export function PetPage() {
   }
 
   return (
-    <div>
-      <article>
-        <p> {Pet.name}</p>
-        <p> This Pets Birthday is {Pet.birthday}</p>
-        <p>Happiness Level: {Pet.happinessLevel} </p>
-        <p>Hunger Level: {Pet.hungerLevel} </p>
-      </article>
-      <section>
-        <button onClick={petPlay}>Play With Pet</button>
-        <button onClick={petFeed}>Feed The Pet</button>
-        <button onClick={petScold}>Scold The Pet</button>
-        <button onClick={deletePet}>Delete This Pet</button>
-        <button>
-          <Link to="/">Home</Link>{' '}
-        </button>
-      </section>
+    <div className="divBorder">
+      <div>
+        <article>
+          <p className="Name"> {Pet.name}</p>
+          <p> This Pets Birthday is {Pet.birthday}</p>
+          <p>Happiness Level: {Pet.happinessLevel} </p>
+          <p>Hunger Level: {Pet.hungerLevel} </p>
+        </article>
+        <section>
+          <button onClick={petPlay}>Play With Pet</button>
+          <button onClick={petFeed}>Feed The Pet</button>
+          <button onClick={petScold}>Scold The Pet</button>
+          <button onClick={deletePet}>Delete This Pet</button>
+          <button>
+            <Link to="/">Home</Link>{' '}
+          </button>
+        </section>
+      </div>
     </div>
   )
 }
