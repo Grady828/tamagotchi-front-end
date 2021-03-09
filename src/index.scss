@@ -4,15 +4,19 @@
 
 html {
   height: 100%;
+  // background-color: rebeccapurple;
+  // background-image: url(images/cool2.png);
+  // background-position: center;
+  // background-size: cover;
 }
 
 body {
-  margin: 0;
-  min-height: 100%;
-  // background-color: rgb(178, 125, 221);
+  margin: 5rem;
+  // min-height: 100%;
   background-image: url(images/bubbles.jpg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  background-size: cover;
 }
 
 header {
@@ -36,10 +40,7 @@ li {
   list-style: none;
   color: rgb(253, 249, 7);
   text-decoration: none;
-  a:hover,
-  a:active {
-    color: paleturquoise;
-  }
+  font-family: 'Fredoka One', cursive;
 }
 
 h2 {
@@ -62,17 +63,43 @@ article {
 section {
   display: flex;
   justify-content: center;
-  background-color: hotpink;
+  // background-color: hotpink;
   text-decoration: none;
-  width: 28.5rem;
-  margin: 0px auto;
+  // width: 30rem;
+  margin: 20px auto;
+  // border: none;
+  // border-radius: 30px;
+  // cursor: pointer;
+  // font-weight: bold;
 }
 input {
   background-color: hotpink;
+  border: none;
+  border-radius: 30px;
+  // cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  width: 12rem;
+  height: 3rem;
 }
 .Name {
   font-size: xx-large;
 }
-Link {
+a {
   text-decoration: none;
+}
+a:visited {
+  color: black;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #73a6e8;
+}
+.Name {
+  font-family: 'Fredoka One', cursive;
 }

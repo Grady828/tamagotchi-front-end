@@ -78,7 +78,7 @@ export function PetPage() {
           <button onClick={petScold}>Scold The Pet</button>
           <button onClick={deletePet}>Delete This Pet</button>
           <button>
-            <Link to="/">Home</Link>{' '}
+            <Link to="/">Home</Link>
           </button>
         </section>
       </div>
