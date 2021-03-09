@@ -2,7 +2,9 @@
 
 ![](./src/images/tama.png)
 
-This was a great project I had fun with because it allowed us to use an API we had built in C# and then build a front-end for it using REACTs useState,useEffect, and REACT ROUTER.
+This was a great project I had fun with because it allowed me to use an API I had built in C# and then build a front-end for it using REACTs useState,useEffect, and REACT ROUTER.
+
+![](./src/images/api.png)
 
 The Object of this project:
 
